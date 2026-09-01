@@ -1,0 +1,8 @@
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\config\CorsConfig.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\config\GatewayErrorConfig.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\config\LocalJwtConfig.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\config\SecurityConfig.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\filter\ClaimsHeaderGlobalFilter.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\filter\RoleAuthorizationWebFilter.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\GatewayApplication.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\security\Roles.java

@@ -1,0 +1,7 @@
+com\rrhh\gateway\GatewayApplication.class
+com\rrhh\gateway\config\CorsConfig.class
+com\rrhh\gateway\security\Roles.class
+com\rrhh\gateway\config\GatewayErrorConfig.class
+com\rrhh\gateway\filter\RoleAuthorizationWebFilter.class
+com\rrhh\gateway\config\SecurityConfig.class
+com\rrhh\gateway\filter\ClaimsHeaderGlobalFilter.class
