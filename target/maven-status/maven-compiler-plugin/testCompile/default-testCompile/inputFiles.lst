@@ -1,2 +1,5 @@
 C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\test\java\com\rrhh\gateway\config\TestJwtConfig.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\test\java\com\rrhh\gateway\GatewayApiManagerIT.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\test\java\com\rrhh\gateway\GatewayRateLimitIT.java
 C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\test\java\com\rrhh\gateway\GatewaySecurityIT.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\test\java\com\rrhh\gateway\ratelimit\InMemoryRateLimitStoreTest.java
