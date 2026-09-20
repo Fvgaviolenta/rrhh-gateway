@@ -30,6 +30,8 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .authorizeExchange(exchanges -> exchanges
                         .pathMatchers("/actuator/health", "/actuator/info").permitAll()
+                        .pathMatchers(HttpMethod.GET, "/api/v1/tenants/resolver").permitAll()
+                        .pathMatchers(HttpMethod.GET, "/api/v1/catalogo").permitAll()
                         .pathMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .anyExchange().authenticated())
                 .oauth2ResourceServer(oauth -> oauth.jwt(Customizer.withDefaults()));

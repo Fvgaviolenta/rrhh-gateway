@@ -1,2 +1,5 @@
-com\rrhh\gateway\config\TestJwtConfig.class
+com\rrhh\gateway\GatewayApiManagerIT.class
 com\rrhh\gateway\GatewaySecurityIT.class
+com\rrhh\gateway\ratelimit\InMemoryRateLimitStoreTest.class
+com\rrhh\gateway\config\TestJwtConfig.class
+com\rrhh\gateway\GatewayRateLimitIT.class
