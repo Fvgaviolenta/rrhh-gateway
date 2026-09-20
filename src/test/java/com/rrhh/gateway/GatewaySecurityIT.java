@@ -31,4 +31,25 @@ class GatewaySecurityIT {
                 .exchange()
                 .expectStatus().isOk();
     }
+
+    @Test
+    void resolverEmpresaEsPublico() {
+        webTestClient.get().uri("/api/v1/tenants/resolver?nombre=Demo")
+                .exchange()
+                .expectStatus()
+                .value(status -> org.junit.jupiter.api.Assertions.assertNotEquals(401, status));
+    }
+
+    @Test
+    void operadorNoMutaMarcasNiListaTrabajadores() {
+        webTestClient.post().uri("/api/v1/marcas-asistencia")
+                .header("Authorization", "Bearer operador")
+                .exchange()
+                .expectStatus().isForbidden();
+
+        webTestClient.get().uri("/api/v1/trabajadores")
+                .header("Authorization", "Bearer operador")
+                .exchange()
+                .expectStatus().isForbidden();
+    }
 }

@@ -2,6 +2,7 @@ package com.rrhh.gateway.security;
 
 public final class Roles {
 
+    public static final String OPERADOR_SAAS = "ROLE_OPERADOR_SAAS";
     public static final String SUPERADMIN = "ROLE_SUPERADMIN";
     public static final String ADMIN_RRHH = "ROLE_ADMIN_RRHH";
     public static final String JEFATURA = "ROLE_JEFATURA";
@@ -15,6 +16,7 @@ public final class Roles {
             return TRABAJADOR;
         }
         return switch (roleClaim.trim()) {
+            case "OperadorSaaS", "ROLE_OPERADOR_SAAS" -> OPERADOR_SAAS;
             case "SuperAdmin", "ROLE_SUPERADMIN" -> SUPERADMIN;
             case "Admin de RRHH", "ROLE_ADMIN_RRHH" -> ADMIN_RRHH;
             case "Jefatura", "ROLE_JEFATURA" -> JEFATURA;

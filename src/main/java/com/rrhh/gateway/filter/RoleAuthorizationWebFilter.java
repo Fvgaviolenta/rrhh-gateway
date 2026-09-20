@@ -28,14 +28,36 @@ public class RoleAuthorizationWebFilter implements WebFilter {
         String path = exchange.getRequest().getPath().value();
         HttpMethod method = exchange.getRequest().getMethod();
 
-        if (!path.startsWith("/api/v1/") || method == HttpMethod.OPTIONS) {
+        if (!path.startsWith("/api/v1/") || method == HttpMethod.OPTIONS
+                || path.equals("/api/v1/tenants/resolver")
+                || path.equals("/api/v1/catalogo")) {
             return chain.filter(exchange);
+        }
+
+        if (path.startsWith("/api/v1/plataforma")) {
+            return requireAuthorities(exchange, chain, Set.of(Roles.OPERADOR_SAAS));
+        }
+
+        if (isDominioTenant(path)) {
+            return rejectOperadorThenAuthorize(exchange, chain, path, method);
+        }
+
+        if (path.contains("/asignar")) {
+            return requireAuthorities(exchange, chain, Set.of(Roles.SUPERADMIN, Roles.ADMIN_RRHH, Roles.OPERADOR_SAAS));
         }
 
         if (!requiresAdmin(path, method)) {
             return chain.filter(exchange);
         }
 
+        return requireAuthorities(exchange, chain, ADMIN_ROLES);
+    }
+
+    private static Mono<Void> requireAuthorities(
+            ServerWebExchange exchange,
+            WebFilterChain chain,
+            Set<String> allowed
+    ) {
         return ReactiveSecurityContextHolder.getContext()
                 .flatMap(ctx -> {
                     if (!(ctx.getAuthentication() instanceof JwtAuthenticationToken jwtAuth)) {
@@ -44,7 +66,7 @@ public class RoleAuthorizationWebFilter implements WebFilter {
                     Jwt jwt = jwtAuth.getToken();
                     String role = firstClaim(jwt, "custom:role", "role");
                     String authority = Roles.authorityFromClaim(role);
-                    if (ADMIN_ROLES.contains(authority)) {
+                    if (allowed.contains(authority)) {
                         return chain.filter(exchange);
                     }
                     return forbidden(exchange);
@@ -52,7 +74,44 @@ public class RoleAuthorizationWebFilter implements WebFilter {
                 .switchIfEmpty(forbidden(exchange));
     }
 
+    private static Mono<Void> rejectOperadorThenAuthorize(
+            ServerWebExchange exchange,
+            WebFilterChain chain,
+            String path,
+            HttpMethod method
+    ) {
+        return ReactiveSecurityContextHolder.getContext()
+                .flatMap(ctx -> {
+                    if (ctx.getAuthentication() instanceof JwtAuthenticationToken jwtAuth) {
+                        String authority = Roles.authorityFromClaim(firstClaim(jwtAuth.getToken(), "custom:role", "role"));
+                        if (Roles.OPERADOR_SAAS.equals(authority)) {
+                            return forbidden(exchange);
+                        }
+                    }
+                    if (!requiresAdmin(path, method)) {
+                        return chain.filter(exchange);
+                    }
+                    return requireAuthorities(exchange, chain, ADMIN_ROLES);
+                })
+                .switchIfEmpty(forbidden(exchange));
+    }
+
+    private static boolean isDominioTenant(String path) {
+        return path.startsWith("/api/v1/trabajadores")
+                || path.startsWith("/api/v1/departamentos")
+                || path.startsWith("/api/v1/cargos")
+                || path.startsWith("/api/v1/contratos")
+                || path.startsWith("/api/v1/liquidaciones")
+                || path.startsWith("/api/v1/asistencia")
+                || path.startsWith("/api/v1/marcas-asistencia")
+                || path.startsWith("/api/v1/ausencias")
+                || path.startsWith("/api/v1/solicitudes-ausencia");
+    }
+
     private static boolean requiresAdmin(String path, HttpMethod method) {
+        if (path.equals("/api/v1/usuarios/invitar") || path.startsWith("/api/v1/usuarios/invitar/")) {
+            return true;
+        }
         if (path.startsWith("/api/v1/usuarios")) {
             return true;
         }

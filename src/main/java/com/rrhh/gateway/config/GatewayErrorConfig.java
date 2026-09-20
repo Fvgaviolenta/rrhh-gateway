@@ -35,9 +35,7 @@ public class GatewayErrorConfig {
             }
             exchange.getResponse().setStatusCode(status);
             exchange.getResponse().getHeaders().setContentType(MediaType.APPLICATION_JSON);
-            String mensaje = status.is5xxServerError() && ex.getMessage() != null
-                    ? escape(ex.getMessage())
-                    : escape(status.getReasonPhrase());
+            String mensaje = resolveMensaje(status, ex);
             String body = String.format(
                     "{\"codigo\":%d,\"mensaje\":\"%s\",\"datos\":null,\"errores\":[]}",
                     status.value(),
@@ -58,7 +56,28 @@ public class GatewayErrorConfig {
         if (ex instanceof ResponseStatusException rse) {
             return HttpStatus.valueOf(rse.getStatusCode().value());
         }
+        for (Throwable current = ex; current != null; current = current.getCause()) {
+            String name = current.getClass().getName();
+            if (current instanceof java.util.concurrent.TimeoutException
+                    || name.contains("ReadTimeoutException")
+                    || name.contains("ConnectTimeoutException")) {
+                return HttpStatus.GATEWAY_TIMEOUT;
+            }
+        }
         return HttpStatus.INTERNAL_SERVER_ERROR;
+    }
+
+    private static String resolveMensaje(HttpStatus status, Throwable ex) {
+        if (status == HttpStatus.PAYLOAD_TOO_LARGE) {
+            return "El cuerpo de la solicitud supera el máximo permitido (1 MB)";
+        }
+        if (status == HttpStatus.GATEWAY_TIMEOUT) {
+            return "El servicio de destino no respondió a tiempo";
+        }
+        if (status.is5xxServerError() && ex.getMessage() != null) {
+            return escape(ex.getMessage());
+        }
+        return escape(status.getReasonPhrase());
     }
 
     private static String escape(String value) {

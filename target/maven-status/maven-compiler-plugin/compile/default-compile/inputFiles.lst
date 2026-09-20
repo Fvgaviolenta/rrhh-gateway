@@ -1,8 +1,16 @@
 C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\config\CorsConfig.java
 C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\config\GatewayErrorConfig.java
 C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\config\LocalJwtConfig.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\config\RateLimitConfig.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\config\RateLimitProperties.java
 C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\config\SecurityConfig.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\controller\ApiCatalogController.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\filter\AccessLogWebFilter.java
 C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\filter\ClaimsHeaderGlobalFilter.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\filter\RateLimitWebFilter.java
 C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\filter\RoleAuthorizationWebFilter.java
 C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\GatewayApplication.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\ratelimit\InMemoryRateLimitStore.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\ratelimit\RateLimitStore.java
+C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\ratelimit\RedisRateLimitStore.java
 C:\Users\alfon\Desktop\INGENIERIA_INFORMATICA_DUOC\SEXTO-SEMESTRE\desarrollo-cloud-native\PROYECTO\rrhh-gateway\src\main\java\com\rrhh\gateway\security\Roles.java
